@@ -382,34 +382,13 @@ def nam():
 nam()
 globals()
 lab8.pack()
-time.sleep(9)
-
-#inserting gif in software
-
-
-file="loading-gif.gif"
-info=Image.open(file)
-
-frames=info.n_frames
-im=[PhotoImage(file=file,format=f"gif -index {i} ") for i in range(frames)]
-anim=None
-def animation(count):
-    global anim
-    im2=im[count]
-    gif_label.configure(image=im2)
-    count +=1
-    if count==frames:
-        count = 0
-    anim = vishal.after(35,lambda :animation(count))
-gif_label= Label(vishal,image="",height=10,width=15)
+time.sleep(1.5) 
 
 #inserting image
 
 gif2=Image.open("images - 2022-10-29T120010.636.jpeg")
 resize2=gif2.resize((300,150),Image.ANTIALIAS)
-image2=ImageTk.PhotoImage(resize2)
-
-vishal.after_cancel(nam)
+image2=ImageTk.PhotoImage(resize2) 
 
 lab5=Label(vishal,image=image2)
 
