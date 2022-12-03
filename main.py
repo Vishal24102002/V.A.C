@@ -10,7 +10,10 @@ import pyttsx3 as pt
 def speak(text):
     engine=pt.init()
     engine.say(text)
-    engine.runAndWait()
+    Voices=engine.getProperty('voices') 
+    Print(Voices) 
+    engine.setProperty('voice',Voices[0].id) 
+    engine.runAndWait() 
 def audio():
     model = Model("C:/Users/Administrator/PycharmProjects/pythonProject2/vosk/vosk-model-small-en-in-0.4")
     recognizer = KaldiRecognizer(model, 16000)
