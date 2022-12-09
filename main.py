@@ -329,16 +329,14 @@ def contact():
 
 #main frame code
 def mainframe():
-    pradeep=Toplevel()
-    pradeep.title("pradeep")
-    pradeep.iconbitmap("vac.ico")
-    pradeep.geometry('450x300')
+    pradeep=frame(vishal)
     gif4=Image.open("images - 2022-10-29T120216.392.jpeg")
     resize5=gif4.resize((450,300),Image.ANTIALIAS)
     image5=ImageTk.PhotoImage(resize5)
     lab7=Label(pradeep,image=image5)
     lab7.place(x=0,y=0)
-
+    
+    
     # upper option
 
     menu = Menu(pradeep)
@@ -366,6 +364,8 @@ def command1():
     time.sleep(2.5)
     speak("please wait while loading the required files")
 
+def destro():
+    lab4.destory()
 
 
 vishal=Toplevel()
@@ -383,7 +383,6 @@ def nam():
     image6 = ImageTk.PhotoImage(resize6)
     lab8 = Label(vishal, image=image6)
 nam()
-globals()
 lab8.pack()
 time.sleep(1.5) 
 
@@ -395,16 +394,13 @@ image2=ImageTk.PhotoImage(resize2)
 
 lab5=Label(vishal,image=image2)
 
-lab4=Label(vishal,text="Starting up ...",width=150,fg='red',bg='blue', font={"arial",28,"bold"},relief=SUNKEN)
+lab4=Label(vishal,text="Starting up ...",width=150,cursor="watch",fg='red',bg='blue', font={"arial",28,"bold"},relief=SUNKEN)
 
 lab5.place(x=0,y=0)
 #lab4.grid(row=7,column=10)
 lab4.pack(side='bottom',anchor='center')
-
-gif_label.pack()
-animation(0)
-vishal.after(ms=12000,func=mainframe)
-#vishal.after(ms=18000,func=vishal.quit)
+vishal.after(ms=12000,fun=destro)
+vishal.after(ms=12999,func=mainframe)
 vishal.after(ms=200,func=command1)
 vishal.mainloop()
 
