@@ -337,26 +337,21 @@ def mainframe():
     lab7.place(x=0,y=0)
     
     
-    # upper option
-
-    menu = Menu(pradeep)
+    # upper options
     pradeep.configure(bg='black')
-    pradeep.config(menu=menu)
-    filemenu = Menu(menu)
+    pradeep.config(menu)
+    filemenu = Menu(pradeep)
     menu.add_cascade(label='File', menu=filemenu)
     filemenu.add_command(label='New')
     filemenu.add_command(label='Open...')
     filemenu.add_separator()
     filemenu.add_command(label='Exit', command=exIT)
-    helpmenu = Menu(menu)
+    helpmenu = Menu(pradeep)
     menu.add_cascade(label='Help', menu=helpmenu)
     helpmenu.add_command(label='About',command=contact)
 
-
-
-    speak("you have sucessfully entered the application")
-    pradeep.after(ms=2000,func=get_audio)
-    pradeep.mainloop()
+    speak("you have sucessfully loaded the application")
+    pradeep.after(ms=2000,func=get_audio) 
 
 #defining th speak commands
 def command1():
@@ -404,3 +399,4 @@ vishal.after(ms=12999,func=mainframe)
 vishal.after(ms=200,func=command1)
 vishal.mainloop()
 
+# hi thanks
