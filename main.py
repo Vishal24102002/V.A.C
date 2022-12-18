@@ -62,7 +62,7 @@ def form():
     entryField.grid(row=0, column=0, columnspan=8)
 
     #micImage = PhotoImage(file='download.png')
-    #micButton = Button(root, image=micImage, bd=20, bg='gold', activebackground='dodgerblue3')
+    #micButton = Button(root, image=micImage, bd=20, bg='blue', activebackground='dodgerblue3')
     #micButton.grid(row=0, column=7)
     mixer.init()
 
@@ -187,8 +187,8 @@ def form():
     rowvalue = 1
     columnvalue = 0
     for i in button_text_list:
-        button = Button(root, width=5, height=2, bd=2, relief=SUNKEN, text=i, bg='gold', fg='white',
-                            font=('arial', 18, 'bold'), activebackground='yellow',
+        button = RoundedButton(root, width=5, height=2, bd=2, relief=SUNKEN, text=i, bg='black', fg='yellow',
+                            font=('arial', 18, 'bold'), activebackground='blue',
                             command=lambda button=i: click(button))
         button.grid(row=rowvalue, column=columnvalue, pady=1)
         columnvalue += 1
@@ -197,6 +197,7 @@ def form():
             columnvalue = 0
 
     root.mainloop()
+
 #defining command 2 over here
 def command2():
     speak("you have chossen digit method that typing or clicking")
@@ -300,8 +301,6 @@ def get_audio():
     if choice=='yes':
         voice()
     elif choice=="no":
-        speak("enjoy the interface mode")
-        time.sleep(2.5)
         speak("please while loading the digital calculator")
         digital()
 
@@ -349,6 +348,8 @@ def mainframe():
     helpmenu = Menu(pradeep)
     menu.add_cascade(label='Help', menu=helpmenu)
     helpmenu.add_command(label='About',command=contact)
+    
+    
 
     speak("you have sucessfully loaded the application")
     pradeep.after(ms=2000,func=get_audio) 
