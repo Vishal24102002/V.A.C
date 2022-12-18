@@ -4,8 +4,7 @@ import time
 from tkinter import *
 from pygame import mixer
 import math
-from PIL import ImageTk,Image
-import speech_recognition as sr
+from PIL import Image,ImageTk
 import pyttsx3 as pt
 def speak(text):
     engine=pt.init()
@@ -188,7 +187,7 @@ def form():
     columnvalue = 0
     for i in button_text_list:
         button = RoundedButton(root, width=5, height=2, bd=2, relief=SUNKEN, text=i, bg='black', fg='yellow',
-                            font=('arial', 18, 'bold'), activebackground='blue',
+                            font=('arial', 18, 'bold'), activebackground='blue',cursor="hand2", 
                             command=lambda button=i: click(button))
         button.grid(row=rowvalue, column=columnvalue, pady=1)
         columnvalue += 1
@@ -309,13 +308,14 @@ def get_audio():
         get_audio()
 
 def EXIT():
-    exIT = Tk()
+    exIT = Toplevel()
     exIT.geometry("300x125")
     exIT.minsize(300, 125)
     exIT.maxsize(300, 125)
-    label1 = Label(exIT, text="Do You Want To EXIT ??? ", font={'bold', 'ariel'})
-    but1 = Button(exIT, text="YES", width=10)
-    but2 = Button(exIT, text="NO", width=10)
+    exIT.Configure(bg="Black") 
+    label1 = Label(exIT, text="Do You Want To EXIT ??? ", font={'bold', 'ariel'},fg="White")
+    but1 = Button(exIT, text="YES", width=10,fg="Yellow",activebackground="blue",bg="Black", cursor="hand2") 
+    but2 = Button(exIT, text="NO", width=10,fg="Yellow",activebackground="blue",bg="Black", cursor="hand2") 
     label1.grid(row=0, column=0, padx=50, pady=25, columnspan=4)
     but1.grid(row=2, column=1)
     but2.grid(row=2, column=2)
@@ -364,7 +364,7 @@ def destro():
     lab4.destory()
 
 
-vishal=Toplevel()
+vishal=Tk()
 vishal.title('Voice Age Calculator --> V.A.C')
 vishal .geometry('300x150')
 #JPEG=Image.open("vac.ico")
