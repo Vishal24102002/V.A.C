@@ -337,9 +337,9 @@ def mainframe():
     
     
     # upper options
-    pradeep.configure(bg='black')
-    pradeep.config(menu)
-    filemenu = Menu(pradeep)
+    pradeep.config(bg='black')
+    vishal.config(menu=menu)
+    filemenu = Menu(pradeep,tearoff=0)
     menu.add_cascade(label='File', menu=filemenu)
     filemenu.add_command(label='New')
     filemenu.add_command(label='Open...')
