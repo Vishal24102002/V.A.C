@@ -6,6 +6,10 @@ from pygame import mixer
 import math
 from PIL import Image,ImageTk
 import pyttsx3 as pt
+def clear():
+    for widget in frame.winfo_children():
+    widget.destroy()
+
 def speak(text):
     engine=pt.init()
     engine.say(text)
