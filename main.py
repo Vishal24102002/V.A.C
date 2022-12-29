@@ -338,17 +338,18 @@ def mainframe():
     
     # upper options
     pradeep.config(bg='black')
-    vishal.config(menu=menu)
-    filemenu = Menu(vishal,tearoff=0)
+    
+    menu=Menu(vishal)
+    filemenu = Menu(menu,tearoff=0)
     menu.add_cascade(label='File', menu=filemenu)
     filemenu.add_command(label='New')
     filemenu.add_command(label='Open...')
     filemenu.add_separator()
     filemenu.add_command(label='Exit', command=exIT)
-    helpmenu = Menu(vishal,tearoff=0)
+    helpmenu = Menu(menu,tearoff=0)
     menu.add_cascade(label='Help', menu=helpmenu)
     helpmenu.add_command(label='About',command=contact)
-    
+    vishal.config(menu=menu)
     
 
     speak("you have sucessfully loaded the application")
