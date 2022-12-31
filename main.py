@@ -6,9 +6,156 @@ from pygame import mixer
 import math
 from PIL import Image,ImageTk
 import pyttsx3 as pt
+from math import *
+
 def clear():
     for widget in frame.winfo_children():
     widget.destroy()
+
+def func():
+  deg=radian*57.295
+  print("angle in degree is ", deg)
+
+def match():
+  help_dict = { 
+  'one':'1', 
+  'two':'2', 
+  'three': '3', 
+  'four': '4', 
+  'five': '5', 
+  'six': '6', 
+  'seven': '7', 
+  'eight': '8', 
+  'nine': '9', 
+  'zero': '0', 
+  'minus':'-', 
+  'plus':'+', 
+  'divide':'/', 
+  'multiply':'*', 
+  'power':'**', 
+  'squareroot':'**1/2', 
+  'square':'**2', 
+  'log':'log', 
+  'percentage':'/100', 
+  'sin':'sin',
+  'cos':'cos', 
+  'tan':'tan', 
+  'eleven':'11', 
+'twelve':'12', 
+'thirteen':'13', 
+'fourteen':'14',
+'fifteen':'15', 
+'sixteen':'16', 
+'seventeen':'17', 
+'eighteen':'18', 
+'nineteen':'19', 
+'twenty':'20', 
+'twentyone':'21', 
+'twentytwo':'22', 
+'twentythree':'23', 
+'twentyfour':'24', 
+'twentyfive':'25', 
+'twentysix':'26', 
+'twentyseven':'27', 
+'twentyeight':'28', 
+'twentynine':'29', 
+'thirty':'30', 
+'thirtyone':'31', 
+'thirtytwo':'32', 
+'thirtythree':'33', 
+'thirtyfour35':'34', 
+'thirtyfive':'35', 
+'thirtysix':'36', 
+'thirtyseven':'37', 
+'thirtyeight':'38',
+'thirtynine':'39',
+'forty':'40',
+'fortyone':'41',
+'fortytwo':'42',
+'fortythree':'43',
+'fortyfour':'44',
+'fortyfive':'45',
+'fortysix':'46',
+'fortyseven':'47',
+'fortyeight':'48',
+'fortynine':'49',
+'fifty':'50',
+'fiftyone':'51',
+'fiftytwo':'52',
+'fiftythree':'53',
+'fiftyfour':'54',
+'fiftyfive':'55',
+'fiftysix':'56',
+'fiftyseven':'57',
+'fiftyeight':'58',
+'fiftynine':'59',
+'sixty':'60',
+'sixtyone':'61',
+'sixtytwo':'62',
+'sixtythree':'63',
+'sixtyfour':'64',
+'sixtyfive':'65',
+'sixtysix':'66',
+'sixtyseven':'67',
+'sixtyeight':'68', 
+'sixtynine':'69',
+'seventy':'70',
+'seventyone':'71',
+'seventytwo':'72',
+'seventythree':'73', 
+'seventyfour':'74', 
+'seventyfive':'75', 
+'seventysix':'76', 
+'seventyseven':'77', 
+'seventyeight':'78', 
+'seventynine':'79', 
+'eighty':'80', 
+'eightyone':'81', 
+'eightytwo':'82', 
+'eightythree':'83', 
+'eightyfour':'84', 
+'eightyfive':'85', 
+'eightysix':'86', 
+'eightyseven':'87', 
+'eightyeight':'88', 
+'eightynine':'89', 
+'ninety':'90', 
+'ninetyone':'91', 
+'ninetytwo':'92', 
+'ninetythree':'93', 
+'ninetyfour':'94', 
+'ninetyfive':'95', 
+'ninetysix':'96', 
+'ninetyseven':'97', 
+'ninetyeight':'98', 
+'ninetynine':'99', 
+'hundred':'100', 
+'e':'e', 
+'bracket1':'(', 
+'space':' ', 
+'pie':'π', 
+'point':'.', 
+'degree':'*π/180', 
+'isto':'', 
+'by':'/', 
+'into':'*', 
+'bracket2':')'
+}
+  test_str=input("enter expression:-:") 
+  print("The original string is : " + test_str)
+  struct= test_str.split()
+  print(struct) 
+  res = ''.join(help_dict[ele] for ele in struct) 
+  print("The string after performing",res)
+
+  π=22/7-0.00126448927
+ # print(" value of pie is ", π) 
+  
+
+
+  result=str(eval(res)) 
+  print("result =",result)
+  
 
 def speak(text):
     engine=pt.init()
