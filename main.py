@@ -3,15 +3,29 @@ import pyaudio
 import time
 from tkinter import *
 from pygame import mixer
-import math
 from PIL import Image,ImageTk
 import pyttsx3 as pt
-from math import *
+from maths import *
 import smtplib
 
-def clear():
-    for frame in frame.winfo_children():
+def clear(a):
+  for frame in frame.winfo_children():
+    frame.destroy()
+  if (a==1):
+    form()
+  elif(a==2):
+    match()
+  else:
+    Print("sorry")
+
+def clear_intial(b):
+   for frame in frame.winfo_children():
       frame.destroy()
+   if(b==1):
+     digital()
+   elif(b==2):
+     voice()
+       
 
 def send():
   server=smtplib.smtp('smtp.gmail.com',587)
@@ -19,7 +33,7 @@ def send():
   server.login('vishalsharma659615@gmail.com','24102002vishal')
   Try:
     server.sendmail('vishalsharma659615@gmail.com','sharma659615@gmail.com',"the app is good in working I am facing an issue kindly check it once and try to give any suggestions possible")
-  except:
+  Except:
     speak("unable to send mail at this moment try again after sometime")
 
 def match():
@@ -147,7 +161,8 @@ def match():
 'into':'*', 
 'bracket2':')'
 }
-  test_str=input("enter expression:-:") 
+  audio()
+  test_str=PYAUDIO
   print("The original string is : " + test_str)
   struct= test_str.split()
   print(struct) 
@@ -160,8 +175,9 @@ def match():
 
 
   result=str(eval(res)) 
-  print("result =",result)
-  
+  OUTPUT_VOICE=entryfield.insert(res)
+  Output_voice2=entryfield.insert(result)
+  Speak(result.format())
 
 def speak(text):
     engine=pt.init()
@@ -197,22 +213,12 @@ def audio():
 
 
 def form():
-    root = Toplevel()
-    root.title('digital')
-    root.iconbitmap("vac.ico")
-    root.geometry('680x486+100+100')
-    root.maxsize(680,486)
-    root.minsize(680,486)
-
+    root = Frame(pradeep)
     gif3 = Image.open("images - 2022-10-22T192356.420.jpeg")
     resize3 = gif3.resize((450, 300), Image.ANTIALIAS)
     image3 = ImageTk.PhotoImage(resize3)
     lab6 = Label(root, image=image3)
     lab6.place(x=0, y=0)
-
-    #logoImage = PhotoImage(file='logo.png')
-    #logoLabel = Label(root,bg='dodgerblue3')
-    #logoLabel.grid(row=0, column=0)
 
     entryField = Entry(root, font=('arial', 20, 'bold'), bg='black', fg='white', bd=10, relief=SUNKEN, width=50)
     entryField.grid(row=0, column=0, columnspan=8)
@@ -352,7 +358,6 @@ def form():
             rowvalue += 1
             columnvalue = 0
 
-    root.mainloop()
 
 #defining command 2 over here
 def command2():
@@ -364,7 +369,7 @@ def command2():
 
 #click mode for calculation
 def digital():
-    asish=Toplevel()
+    asish=Frame(pradeep)
     asish.title('digital form')
     #speaking command for better interaction
     asish.after(ms=2000,func=command2)
@@ -387,34 +392,16 @@ def digital():
     #lab2.pack(side=BOTTOM)
 
     lab2.grid(row=0, column=0,pady=55)
-
-    asish.after(ms=10000,func=form)
-    asish.after(ms=10100,func=asish.quit)
-
-
-    asish.mainloop()
+    clear(1)
+    
 def voice():
     speak("thanks for selecting voice input")
 
     speak("what is the numbers ")
     #taking the data from user
-    audio()
-    NUMBER=PYAUDIO[14:-3]
-    NO(NUMBER)
-    print("the value of data",dat)
-
-
-
-
-
-
-    # taking operation from user using speech
-    speak("tell us the operation to be performed")
-    audio()
-    DATA=PYAUDIO[14:-3]
+    speak("please speak the expression")
+    clear(2)
     
-
-
 def get_audio():
     speak("do you want to select the voice input reply in yes or no")
 
@@ -489,16 +476,16 @@ def mainframe():
     option_frame=Frame(vishal,bg='#c3c3c3')
     
     #side options
-    Home_menu=Button(option_frame,text='HOME')
+    Home_menu=Button(option_frame,text='HOME',command=mainframe)
     Home_menu.place(x=10,y=45)
 
-    digital_menu=Button(option_frame,text='DIGITAL')
+    digital_menu=Button(option_frame,text='DIGITAL',command=lambda: clear_initial(1))
     Home_menu.place(x=10,y=45)
     
-    voice_menu=Button(option_frame,text='VOICE')
+    voice_menu=Button(option_frame,text='VOICE',command=lambda: clear_initial(2))
     Home_menu.place(x=10,y=45)
 
-    report_menu=Button(option_frame,text='REPORT')
+    report_menu=Button(option_frame,text='REPORT',command=contact)
     Home_menu.place(x=10,y=45)
 
     
