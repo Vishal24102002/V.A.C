@@ -7,14 +7,20 @@ import math
 from PIL import Image,ImageTk
 import pyttsx3 as pt
 from math import *
+import smtplib
 
 def clear():
-    for widget in frame.winfo_children():
-    widget.destroy()
+    for frame in frame.winfo_children():
+      frame.destroy()
 
-def func():
-  deg=radian*57.295
-  print("angle in degree is ", deg)
+def send():
+  server=smtplib.smtp('smtp.gmail.com',587)
+  server.startttls()
+  server.login('vishalsharma659615@gmail.com','24102002vishal')
+  Try:
+    server.sendmail('vishalsharma659615@gmail.com','sharma659615@gmail.com',"the app is good in working I am facing an issue kindly check it once and try to give any suggestions possible")
+  except:
+    speak("unable to send mail at this moment try again after sometime")
 
 def match():
   help_dict = { 
@@ -360,12 +366,6 @@ def command2():
 def digital():
     asish=Toplevel()
     asish.title('digital form')
-    x=300
-    y=150
-    asish.geometry("300x150")
-    asish.maxsize(x,y)
-    asish.minsize(300,150)
-    asish.iconbitmap("vac.ico")
     #speaking command for better interaction
     asish.after(ms=2000,func=command2)
     #labels are that available
@@ -469,24 +469,51 @@ def EXIT():
 
 
 def contact():
-    filmenu = Menu(menu)
-    menu.add_cascade(label='contact', menu=filmenu)
-    filemenu.add_command(label='vishalsharma@gmail.com')
+    filemenu = Toplevel(menu)
+    filemenu.title('ABOUT')
+    Label_filemenu1=label(filemenu,text='')
+    Label_filemenu2=label(filemenu,text='contact :')
+    Label_filemenu3=label(filemenu,text='vishalsharma@gmail.com')
+    Label_filemenu4=label(filemenu,text='Do you want to report the issue ')
+    Label_filemenu5=Button(filemenu,text='Ok',command=send)
+    Label_filemenu1.grid(row=0,column=0)
+    Label_filemenu2.grid(row=2,column=1)
+    Label_filemenu3.grid(row=2,column=2)
+    Label_filemenu4.grid(row=,column=)
+    Label_filemenu5.pack()
+    filemenu.mainloop()
 
 
 #main frame code
 def mainframe():
-    pradeep=Frame(vishal)
+    option_frame=Frame(vishal,bg='#c3c3c3')
+    
+    #side options
+    Home_menu=Button(option_frame,text='HOME')
+    Home_menu.place(x=10,y=45)
+
+    digital_menu=Button(option_frame,text='DIGITAL')
+    Home_menu.place(x=10,y=45)
+    
+    voice_menu=Button(option_frame,text='VOICE')
+    Home_menu.place(x=10,y=45)
+
+    report_menu=Button(option_frame,text='REPORT')
+    Home_menu.place(x=10,y=45)
+
+    
+    option_frame.pack(side=left)
+    option_frame.pack_propogate(False)
+    option_frame.configure(width=100,height=400)
+
+    pradeep=Frame(vishal,highlight background='black',highlight thickness=3)
     gif4=Image.open("images - 2022-10-29T120216.392.jpeg")
     resize5=gif4.resize((450,300),Image.ANTIALIAS)
     image5=ImageTk.PhotoImage(resize5)
     lab7=Label(pradeep,image=image5)
     lab7.place(x=0,y=0)
     
-    
-    # upper options
     pradeep.config(bg='black')
-    
     menu=Menu(vishal)
     filemenu = Menu(menu,tearoff=0)
     menu.add_cascade(label='File', menu=filemenu)
@@ -499,6 +526,9 @@ def mainframe():
     helpmenu.add_command(label='About',command=contact)
     vishal.config(menu=menu)
     
+    pradeep.pack(side=left)
+    pradeep.pack_propogate(False)
+    pradeep.configure(height=400,width=600)
 
     speak("you have sucessfully loaded the application")
     pradeep.after(ms=2000,func=get_audio) 
@@ -515,7 +545,7 @@ def destro():
 
 vishal=Tk()
 vishal.title('Voice Age Calculator --> V.A.C')
-vishal .geometry('300x150')
+vishal.geometry('300x150')
 #JPEG=Image.open("vac.ico")
 #JPEG1=ImageTk.PhotoImage(JPEG)
 vishal.iconbitmap("vac.ico")
