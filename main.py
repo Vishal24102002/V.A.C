@@ -247,10 +247,9 @@ def digital():
 
     asish.mainloop()
 def voice():
-    print("thanks its working")
-    speak("thanks its working well")
+    speak("thanks for selecting voice input")
 
-    speak("speak the numbers ")
+    speak("what is the numbers ")
     #taking the data from user
     audio()
     NUMBER=PYAUDIO[14:-3]
@@ -266,10 +265,7 @@ def voice():
     speak("tell us the operation to be performed")
     audio()
     DATA=PYAUDIO[14:-3]
-    if DATA=="addition" or DATA=="add":
-        Q=a+b
-        speak("the sum of above number  is ")
-        speak(format(Q))
+    
 
 
 def get_audio():
@@ -293,6 +289,7 @@ def get_audio():
             speak("unable to recognizze your voice")
             time.sleep(1.5)
             speak("please try again")
+            get_audio()
 
         elif recognizer.AcceptWaveform(data):
             PYAUDIO = recognizer.Result()
@@ -300,13 +297,11 @@ def get_audio():
             print(PYAUDIO)
             time.sleep(2.5)
             break
-
     if choice=='yes':
         voice()
     elif choice=="no":
         speak("please while loading the digital calculator")
         digital()
-
     else:
         speak("please reply in yes or no")
         get_audio()
@@ -324,6 +319,8 @@ def EXIT():
     but1.grid(row=2, column=1)
     but2.grid(row=2, column=2)
     exIT.mainloop()
+
+
 def contact():
     filmenu = Menu(menu)
     menu.add_cascade(label='contact', menu=filmenu)
@@ -332,7 +329,7 @@ def contact():
 
 #main frame code
 def mainframe():
-    pradeep=frame(vishal)
+    pradeep=Frame(vishal)
     gif4=Image.open("images - 2022-10-29T120216.392.jpeg")
     resize5=gif4.resize((450,300),Image.ANTIALIAS)
     image5=ImageTk.PhotoImage(resize5)
