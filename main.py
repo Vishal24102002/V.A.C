@@ -150,6 +150,7 @@ def match():
 'into':'*', 
 'bracket2':')'
 }
+  
   audio()
   test_str=PYAUDIO
   print("The original string is : " + test_str)
@@ -157,16 +158,12 @@ def match():
   print(struct) 
   res = ''.join(help_dict[ele] for ele in struct) 
   print("The string after performing",res)
-
+  OUTPUT_VOICE.insert(0,res)
   π=22/7-0.00126448927
- # print(" value of pie is ", π) 
-  
-
 
   result=str(eval(res)) 
-  OUTPUT_VOICE=entryfield.insert(res)
-  Output_voice2=entryfield.insert(result)
   Speak(result.format())
+  OUTPUT_VOICE.insert(0,result)
 
 def speak(text):
     engine=pt.init()
@@ -388,7 +385,10 @@ def voice():
     time.sleep(2.5)
     #taking the data from user
     speak("please speak the expression")
+    OUTPUT_VOICE=Entry(pradeep,font=('arial', 20, 'bold'), bg='black', fg='white', bd=10, relief=SUNKEN, width=50)
+    OUTPUT_VOICE.place(x=,y=)
     clear(2)
+   
     
 def get_audio():
     speak("do you want to select the voice input reply in yes or no")
