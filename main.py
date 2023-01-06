@@ -5,7 +5,7 @@ from tkinter import *
 from pygame import mixer
 from PIL import Image,ImageTk
 import pyttsx3 as pt
-from maths import *
+from math import *
 
 def clear(a):
   for frame in frame.winfo_children():
@@ -385,41 +385,15 @@ def digital():
     
 def voice():
     speak("thanks for selecting voice input")
-
-    speak("what is the numbers ")
+    time.sleep(2.5)
     #taking the data from user
     speak("please speak the expression")
     clear(2)
     
 def get_audio():
     speak("do you want to select the voice input reply in yes or no")
-
-    #function for speech recognition in offline module
-
-    model = Model("C:/Users/Administrator/PycharmProjects/pythonProject2/vosk/vosk-model-small-en-in-0.4")
-    recognizer = KaldiRecognizer(model, 16000)
-
-    mic = pyaudio.PyAudio()
-    time.sleep(1.5)
-    speak("your audio is being captured")
-    print("your voice is recorded")
-    stream = mic.open(rate=16000, channels=1, format=pyaudio.paInt16, input=True, frames_per_buffer=8192)
-    stream.start_stream()
-
-    while True:
-        data = stream.read(4096)
-        if len(data) == 0:
-            speak("unable to recognizze your voice")
-            time.sleep(1.5)
-            speak("please try again")
-            get_audio()
-
-        elif recognizer.AcceptWaveform(data):
-            PYAUDIO = recognizer.Result()
-            choice = PYAUDIO[14:-3]
-            print(choice)
-            time.sleep(2.5)
-            break
+    audio()
+    choice=PYAUDIO
     if choice=='yes':
         voice()
     elif choice=="no":
@@ -459,13 +433,16 @@ def contact():
     Label_filemenu5.grid(row=4,column=2)
     filemenu.mainloop()
 
+def framevishal():
+    speak("welcome to main window ")
+
 
 #main frame code
 def mainframe():
     option_frame=Frame(vishal,bg='#c3c3c3')
     
     #side options
-    Home_menu=Button(option_frame,text='HOME',command=mainframe)
+    Home_menu=Button(option_frame,text='HOME',command=framevishal)
     Home_menu.place(x=10,y=45)
 
     digital_menu=Button(option_frame,text='DIGITAL',command=lambda: clear_initial(1))
@@ -478,18 +455,17 @@ def mainframe():
     Home_menu.place(x=10,y=45)
 
     
-    option_frame.pack(side=left)
+    option_frame.pack(side=LEFT)
     option_frame.pack_propogate(False)
     option_frame.configure(width=100,height=400)
 
-    pradeep=Frame(vishal,highlight background='black',highlight thickness=3)
+    pradeep=Frame(vishal,highlightbackground='black',highlightthickness=3)
     gif4=Image.open("images - 2022-10-29T120216.392.jpeg")
     resize5=gif4.resize((450,300),Image.ANTIALIAS)
     image5=ImageTk.PhotoImage(resize5)
     lab7=Label(pradeep,image=image5)
     lab7.place(x=0,y=0)
-    
-    pradeep.config(bg='black')
+
     menu=Menu(vishal)
     filemenu = Menu(menu,tearoff=0)
     menu.add_cascade(label='File', menu=filemenu)
@@ -502,12 +478,12 @@ def mainframe():
     helpmenu.add_command(label='About',command=contact)
     vishal.config(menu=menu)
     
-    pradeep.pack(side=left)
+    pradeep.pack(side=LEFT)
     pradeep.pack_propogate(False)
     pradeep.configure(height=400,width=600)
 
     speak("you have sucessfully loaded the application")
-    pradeep.after(ms=2000,func=get_audio) 
+    pradeep.after(ms=3000,func=get_audio) 
 
 #defining th speak commands
 def command1():
@@ -517,6 +493,10 @@ def command1():
 
 def destro():
     lab4.destory()
+    lab5.destory()
+    lab8.destory()
+    mainframe()
+
 
 
 vishal=Tk()
@@ -548,10 +528,8 @@ lab5=Label(vishal,image=image2)
 lab4=Label(vishal,text="Starting up ...",width=150,cursor="watch",fg='red',bg='blue', font={"arial",28,"bold"},relief=SUNKEN)
 
 lab5.place(x=0,y=0)
-#lab4.grid(row=7,column=10)
 lab4.pack(side='bottom',anchor='center')
-vishal.after(ms=12000,fun=destro)
-vishal.after(ms=12999,func=mainframe)
+vishal.after(ms=5000,func=destro)
 vishal.after(ms=200,func=command1)
 vishal.mainloop()
 
