@@ -6,7 +6,6 @@ from pygame import mixer
 from PIL import Image,ImageTk
 import pyttsx3 as pt
 from maths import *
-import smtplib
 
 def clear(a):
   for frame in frame.winfo_children():
@@ -25,16 +24,6 @@ def clear_intial(b):
      digital()
    elif(b==2):
      voice()
-       
-
-def send():
-  server=smtplib.smtp('smtp.gmail.com',587)
-  server.startttls()
-  server.login('vishalsharma659615@gmail.com','24102002vishal')
-  Try:
-    server.sendmail('vishalsharma659615@gmail.com','sharma659615@gmail.com',"the app is good in working I am facing an issue kindly check it once and try to give any suggestions possible")
-  Except:
-    speak("unable to send mail at this moment try again after sometime")
 
 def match():
   help_dict = { 
@@ -205,9 +194,9 @@ def audio():
             speak("please try again")
 
         elif recognizer.AcceptWaveform(data):
-            PYAUDIO = recognizer.Result()
+            PYAUDIO1 = recognizer.Result()
+            PYAUDIO= PYAUDIO1[14:-3]
             print(PYAUDIO)
-            time.sleep(2.5)
             break
 
 
@@ -428,7 +417,7 @@ def get_audio():
         elif recognizer.AcceptWaveform(data):
             PYAUDIO = recognizer.Result()
             choice = PYAUDIO[14:-3]
-            print(PYAUDIO)
+            print(choice)
             time.sleep(2.5)
             break
     if choice=='yes':
@@ -462,12 +451,12 @@ def contact():
     Label_filemenu2=label(filemenu,text='contact :')
     Label_filemenu3=label(filemenu,text='vishalsharma@gmail.com')
     Label_filemenu4=label(filemenu,text='Do you want to report the issue ')
-    Label_filemenu5=Button(filemenu,text='Ok',command=send)
+    Label_filemenu5=Button(filemenu,text='Ok')
     Label_filemenu1.grid(row=0,column=0)
     Label_filemenu2.grid(row=2,column=1)
     Label_filemenu3.grid(row=2,column=2)
-    Label_filemenu4.grid(row=,column=)
-    Label_filemenu5.pack()
+    Label_filemenu4.grid(row=3,column=1,columnspan=3)
+    Label_filemenu5.grid(row=4,column=2)
     filemenu.mainloop()
 
 
