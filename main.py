@@ -6,7 +6,7 @@ from pygame import mixer
 from PIL import Image,ImageTk
 import pyttsx3 as pt
 from math import *
-from tkvideo import tkvideo
+#from tkvideo import tkvideo
 
 
 def clear_frame():
@@ -188,10 +188,10 @@ def audio():
     print("your voice is recorded")
     stream = mic.open(rate=16000, channels=1, format=pyaudio.paInt16, input=True, frames_per_buffer=8192)
     clear_frame()
-    Framemohit=Frame(pradeep)
-    Framemohit.pack()
-    player = tkvideo.tkvideo("C:\\path\\to\\video.mp4", Framemohit, loop = 3, size = (1280,720))
-    player.play()
+ #   Framemohit=Frame(pradeep)
+  #  Framemohit.pack()
+   # player = tkvideo.tkvideo("C:\\path\\to\\video.mp4", Framemohit, loop = 3, size = (1280,720))
+  #  player.play()
     stream.start_stream()
 
     while True:
