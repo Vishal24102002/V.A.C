@@ -166,16 +166,17 @@ def match():
   print("The string after performing",res)
   OUTPUT_VOICE.insert(0,res)
   π=22/7-0.00126448927
-
+  OUTPUT_VOICE.delete(0,len(res))
   result=str(eval(res)) 
-  Speak(result.format())
+  text="the result of the above expression if {ans}"
+  Speak(text.format(ans=result))
   OUTPUT_VOICE.insert(0,result)
 
 def speak(text):
     engine=pt.init()
     engine.say(text)
     Voices=engine.getProperty('voices') 
-    Print(Voices) 
+    print(Voices) 
     engine.setProperty('voice',Voices[0].id) 
     engine.runAndWait() 
 def audio():
@@ -183,9 +184,9 @@ def audio():
     recognizer = KaldiRecognizer(model, 16000)
 
     mic = pyaudio.PyAudio()
-    time.sleep(1.5)
     speak("your audio is being captured")
     print("your voice is recorded")
+    time.sleep(1.5)
     stream = mic.open(rate=16000, channels=1, format=pyaudio.paInt16, input=True, frames_per_buffer=8192)
     clear_frame()
  #   Framemohit=Frame(pradeep)
@@ -198,7 +199,6 @@ def audio():
         data = stream.read(4096)
         if len(data) == 0:
             speak("unable to recognizze your voice")
-            time.sleep(1.5)
             speak("please try again")
 
         elif recognizer.AcceptWaveform(data):
@@ -499,7 +499,7 @@ def mainframe():
 #defining th speak commands
 def command1():
     speak("starting up")
-    time.sleep(2.5)
+    time.sleep(1.5)
     speak("please wait while loading the required files")
 
 def destro():
@@ -512,7 +512,7 @@ def destro():
 
 vishal=Tk()
 vishal.title('Voice Age Calculator --> V.A.C')
-vishal.geometry('300x150')
+vishal.geometry('400x250')
 #JPEG=Image.open("vac.ico")
 #JPEG1=ImageTk.PhotoImage(JPEG)
 vishal.iconbitmap("vac.ico")
@@ -531,7 +531,7 @@ time.sleep(1.5)
 #inserting image
 
 gif2=Image.open("images - 2022-10-29T120010.636.jpeg")
-resize2=gif2.resize((300,150),Image.ANTIALIAS)
+resize2=gif2.resize((400,250),Image.ANTIALIAS)
 image2=ImageTk.PhotoImage(resize2) 
 
 lab5=Label(vishal,image=image2)
