@@ -12,4 +12,4 @@ we tried to make calulation easy and interesting one for the younger generation 
 </ul>
 <br> 
 <b><h3> Download </h3></b>
-click the <a href="">download link </a> for exe file 
+click the <a href=""> Download Link</a> for exe file 
