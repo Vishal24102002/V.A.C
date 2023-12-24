@@ -10,7 +10,6 @@ we tried to make calulation easy and interesting one for the younger generation 
 <li> pillow </li>
 <li> maths </li>
 </ul>
-<br> 
 <b><h3>Screen-Shots</h3></b>
 <br>
 <b><h3> Download </h3></b>
