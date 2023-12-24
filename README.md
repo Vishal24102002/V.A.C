@@ -11,6 +11,9 @@ we tried to make calulation easy and interesting one for the younger generation 
 <li> maths </li>
 </ul>
 <b><h3>Screen-Shots</h3></b>
+<img src="">
+<br>
+<img src="">
 <br>
 <b><h3> Download </h3></b>
 click the <a href=""><b> Download Link</b></a> for exe file 
