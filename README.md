@@ -11,6 +11,9 @@ we tried to make calulation easy and interesting one for the younger generation 
 <li> maths </li>
 </ul>
 <br> 
+.div{
+max-height=50%
+}
 <div>
 <img src='vac.jpg'>
 </div>
