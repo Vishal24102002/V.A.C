@@ -7,6 +7,7 @@ we tried to make calulation easy and interesting one for the younger generation 
 <li> tkinter & CustomTkinter (Python built-in) </li>
 <li> pyttsx-3 </li>
 <li> speech recognition </li>
-<li>  </li>
+<li> pillow </li>
+<li> maths </li>
 </ul>
 <br> 
