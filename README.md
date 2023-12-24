@@ -13,3 +13,6 @@ we tried to make calulation easy and interesting one for the younger generation 
 <br> 
 <b><h3> Download </h3></b>
 click the <a href=""> Download Link</a> for exe file 
+
+<b><h3> License </h3></b>
+In oder to view the license click on the <a href="">View</a> link 
