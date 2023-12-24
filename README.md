@@ -4,7 +4,7 @@ modes for the better functing of the calculator
 we tried to make calulation easy and interesting one for the younger generation <br>
 <h3>Built With :</h3>
 <ul>
-<li> tkinter & CustomTkinter (Python built-in) </li>
+<li> tkinter & CustomTkinter </li>
 <li> pyttsx-3 </li>
 <li> speech recognition </li>
 <li> pillow </li>
