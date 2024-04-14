@@ -19,4 +19,4 @@ we tried to make calulation easy and interesting one for the younger generation 
 <b><h3> Download </h3></b>
 click the <a href=""><b> Download Link</b></a> for exe file 
 <b><h3> License </h3></b>
-In oder to view the license click on the <a href=""><b>View</b></a> link 
+In oder to view the license click on the <a href="https://github.com/Vishal24102002/V.A.C/blob/main/LICENSE"><b>View</b></a> link 
