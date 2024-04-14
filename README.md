@@ -11,7 +11,7 @@ we tried to make calulation easy and interesting one for the younger generation 
 <li> maths </li>
 </ul>
 <b><h3>Screen-Shots</h3></b>
-<center><img src='vac.jpg' height='400' width='400'>
+<center><img src='vac.jpg' height='300' width='200'>
 <br>
 <img src="">
 <br>
